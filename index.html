@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--CSS-->
+  <link rel="stylesheet" href="main.css">
+  <!--TAILWIND CSS-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!--REMIX ICONS-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <title>ChessPlay.com</title>
+</head>
+
+<body>
+  <!--HEADER-->
+  <header class="sticky top-0 z-20 w-full flex flex-col items-center bg-yellow-900">
+    <!--NAVBAR MAIN-->
+    <nav class="px-5 py-3 w-full max-w-[1260px] bg-yellow-900 z-30">
+      <!--NAVBAR (DESKTOP)-->
+      <div class="flex items-center justify-between">
+        <!--MENU BAR-->
+        <div class="flex items-center gap-7">
+          <!--HAMBURGUER MENU (MOBILE)-->
+          <button
+            class="min-[834px]:hidden px-3 py-1.5 bg-white text-yellow-900 font-extrabold transition duration-300 hover:scale-105 rounded"
+            id="display_mobile_menu" type="button">
+            <i class="ri-menu-2-line"></i>
+            <i class="hidden ri-close-fill"></i>
+          </button>
+
+          <!--LOGO-->
+          <a href="chess.html" class="pl-3 pr-4 py-2 flex items-center gap-2 rounded-xl">
+            <img class="w-[30px]"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Chess_Cet45.svg/240px-Chess_Cet45.svg.png"
+              alt="knight_logo">
+            <h1 class="text-lg text-white font-bold border-b-2 border-white">ChessPlay</h1>
+          </a>
+          <!--LINKS (DESKTOP)-->
+          <div class="hidden min-[834px]:flex gap-3 text-white font-semibold">
+            <button href="jugar.html"
+              class="px-4 py-1 flex gap-2 hover:duration-700 hover:transition hover:bg-yellow-700 rounded-lg"
+              id="btn_play_desktop">
+              <h2>Jugar</h2>
+              <i class="transition duration-700 ri-arrow-down-s-line"></i>
+            </button>
+            <button href="tienda.html"
+              class="px-4 py-1 flex gap-2 hover:duration-700 hover:transition hover:bg-yellow-700 rounded-lg"
+              id="btn_store_desktop">
+              <h2>Tienda</h2>
+              <i class="transition duration-700 ri-arrow-down-s-line"></i>
+            </button>
+            <a href="noticias.html"
+              class="px-4 py-1 flex gap-2 hover:duration-700 hover:transition hover:bg-yellow-700 rounded-lg">
+              <h2>Noticias</h2>
+            </a>
+            <a href="noticias.html"
+              class="px-4 py-1 flex gap-2 hover:duration-700 hover:transition hover:bg-yellow-700 rounded-lg">
+              <h2>Nosotros</h2>
+            </a>
+          </div>
+        </div>
+
+        <!--OPTIONS-->
+        <div class="flex gap-3 text-lg rounded-lg">
+          <button class="px-3 py-1 text-white transition duration-300 hover:bg-white hover:text-black rounded-full"
+            type="button">
+            <i class="ri-search-line"></i>
+          </button>
+          <button
+            class="px-3 py-1 relative text-white transition duration-300 hover:bg-white hover:text-black rounded-full"
+            id="display_cart_menu" type="button">
+            <i class="ri-shopping-cart-fill"></i>
+            <span class="px-1.5 py-0.5 absolute -right-1 -top-1 bg-yellow-600 text-xs rounded-full"
+              id="cartAmount">0</span>
+          </button>
+          <button
+            class="hidden min-[834px]:block px-3 py-1 text-white transition duration-300 hover:bg-white hover:text-black rounded-full"
+            type="button">
+            <i class="ri-user-fill"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--SHOW PLAY AND STORE NAVBAR (DESKTOP)-->
+    <nav class="w-full max-w-[1260px] hidden relative z-20" id="menu_desktop">
+      <!--PLAY CATEGORY-->
+      <div class="play hidden p-5 absolute w-full top-0 bg-yellow-700 rounded-b-xl z-10">
+        <div class="w-full flex justify-between gap-5">
+          <!--SPECIFICATIONS-->
+          <div class="w-[30%] px-5 pt-5 pb-4 bg-yellow-50 rounded-lg">
+            <div class="flex gap-3 text-2xl font-bold">
+              <i class="ri-gamepad-line"></i>
+              <h1>Jugar</h1>
+            </div>
+            <ul class="mt-4" id="play_categories">
+            </ul>
+          </div>
+          <!--IMG TRANSITIONS-->
+          <div class="relative w-[70%] flex justify-center" id="play_transitions">
+            <img class="w-full h-[373px] object-cover rounded-lg" src="https://fondosmil.com/fondo/65860.jpg"
+              alt="banner" />
+            <div class="absolute p-8 z-10 left-0 w-2/5 h-full flex items-center bg-yellow-900 bg-opacity-60 rounded-lg">
+              <div class="font-bold">
+                <p class="md:text-xl lg:text-3xl text-white uppercase">
+                  APROVECHA LAS OFERTAS HASTA EN UN 50% DE DESCUENTO!!
+                </p>
+                <button
+                  class="mt-5 px-4 py-2 bg-yellow-200 transition hover:scale-105 md:text-sm lg:text-base rounded-lg">
+                  Descubre más
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--STORE CATEGORY-->
+      <div class="store hidden p-5 absolute w-full top-0 bg-yellow-700 rounded-b-xl z-20">
+        <div class="w-full flex justify-between gap-5">
+          <!--SPECIFICATIONS-->
+          <div class="w-[30%] px-5 pt-5 pb-4 bg-yellow-50 rounded-lg">
+            <div class="flex gap-3 text-2xl font-bold">
+              <i class="ri-store-2-line"></i>
+              <h1>Tienda</h1>
+            </div>
+            <ul class="mt-4" id="store_categories">
+            </ul>
+          </div>
+          <!--IMG TRANSITIONS-->
+          <div class="relative w-[70%] flex justify-center" id="store_transitions">
+            <img class="w-full h-[373px] object-cover rounded-lg"
+              src="https://img.freepik.com/fotos-premium/conjunto-piezas-ajedrez-madera-brillante-colocadas-sobre-tablero-ajedrez-fondo-pared-ladrillo-concepto-planificacion-estrategia-empresarial-copie-espacio-texto-o-articulo-representacion-ilustracion-3d_34515-892.jpg"
+              alt="banner" />
+            <div class="absolute p-8 z-10 left-0 w-2/5 h-full flex items-center bg-yellow-900 bg-opacity-60 rounded-lg">
+              <div class="font-bold">
+                <p class="md:text-xl lg:text-3xl text-white uppercase">
+                  APROVECHA LAS OFERTAS HASTA EN UN 50% DE DESCUENTO!!
+                </p>
+                <button
+                  class="mt-5 px-4 py-2 bg-yellow-200 transition hover:scale-105 md:text-sm lg:text-base rounded-lg">
+                  Descubre más
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--SIDEBAR (MOBILE)-->
+    <nav class="w-full max-w-[1260px] min-[834px]:hidden relative z-20">
+      <div
+        class="p-5 absolute w-full max-w-[400px] left-0 top-0 bg-yellow-700 flex flex-col gap-3 rounded-br-xl transition duration-700 -translate-x-full shadow-lg"
+        id="menu_mobile">
+        <button
+          class="px-5 py-2 flex gap-5 bg-yellow-50 hover:bg-yellow-200 text-lg text-black font-semibold rounded-lg"
+          type="button">
+          <i class="ri-user-fill"></i>
+          <p>Iniciar Sesión</p>
+        </button>
+        <hr />
+        <!--SPECIFICATIONS-->
+        <div class="px-5 py-3 bg-yellow-50 rounded-lg">
+          <button class="w-full flex justify-between text-lg font-semibold" id="btn_play_mobile">
+            <div class="flex gap-5">
+              <i class="ri-gamepad-line"></i>
+              <h1>Jugar</h1>
+            </div>
+            <i class="transition duration-700 ri-arrow-down-s-line"></i>
+          </button>
+          <ul class="ml-10 mt-4" id="play_mobile"></ul>
+        </div>
+        <div class="px-5 py-3 bg-yellow-50 rounded-lg">
+          <button class="w-full flex justify-between text-lg font-semibold" id="btn_store_mobile">
+            <div class="flex gap-5">
+              <i class="ri-store-2-line"></i>
+              <h1>Tienda</h1>
+            </div>
+            <i class="transition duration-700 ri-arrow-down-s-line"></i>
+          </button>
+          <ul class="ml-10 mt-4" id="store_mobile"></ul>
+        </div>
+        <button
+          class="px-5 py-2 flex gap-5 bg-yellow-50 hover:bg-yellow-200 text-lg text-black font-semibold rounded-lg"
+          type="button">
+          <i class="ri-newspaper-line"></i>
+          <p>Noticias</p>
+        </button>
+        <button
+          class="px-5 py-2 flex gap-5 bg-yellow-50 hover:bg-yellow-200 text-lg text-black font-semibold rounded-lg"
+          type="button">
+          <i class="ri-group-2-line"></i>
+          <p>Nosotros</p>
+        </button>
+      </div>
+    </nav>
+
+    <!--SIDEBAR (CART)-->
+    <nav class="w-full max-w-[1260px] relative z-20">
+      <div
+        class="p-5 absolute w-full max-w-[400px] right-0 top-0 bg-yellow-300 flex flex-col gap-3 rounded-bl-xl transition duration-700 shadow-lg -translate-y-full"
+        id="menu_cart">
+        <div class="flex justify-between items-center gap-2 text-lg">
+          <div class="flex items-center gap-2">
+            <i class="ri-shopping-cart-fill"></i>
+            <h2 class="font-semibold">Carrito de compras</h2>
+          </div>
+          <a href="cart.html" class="flex items-center gap-2 text-sm border-b border-black hover:font-semibold">
+            <p>Ver todo</p>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+        <div class="pr-3 overflow-y-scroll max-h-[55vh] flex flex-col gap-3" id="cartItems"></div>
+        <hr class="border border-black" />
+        <div class="p-5 flex flex-col gap-3 bg-white rounded-lg shadow" id="finalPrice"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!--MAIN-->
+  <main class="w-full flex flex-col items-center bg-orange-50">
+    <section class="p-10 w-full max-w-[1260px] flex flex-col gap-10">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-5">
+          <h1 class="text-3xl text-yellow-900 font-bold">
+            Campaña de navidad
+          </h1>
+          <img class="rounded-lg" src="https://i.pinimg.com/originals/4d/59/b6/4d59b61645819e5f97d3f49454bb1d8c.jpg"
+            alt="navidad" />
+        </div>
+        <div class="flex flex-col gap-5">
+          <h1 class="text-3xl text-yellow-900 font-bold">
+            Productos en oferta!!
+          </h1>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="shop"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--FOOTER-->
+  <footer class="w-full flex flex-col items-center bg-yellow-900">
+    <div class="p-10 w-full max-w-[1260px]">
+      <div class="grid grid-cols-3 gap-8 text-white">
+        <div class="flex flex-col gap-8">
+          <!--LOGO-->
+          <a href="chess.html" class="w-full flex items-center gap-2">
+            <img class="w-[30px]"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Chess_Cet45.svg/240px-Chess_Cet45.svg.png"
+              alt="knight_logo">
+            <h1 class="text-lg text-white font-bold border-b-2 border-white">
+              ChessPlay
+            </h1>
+          </a>
+          <!--LINKS LIST-->
+          <div class="ml-8 flex flex-col gap-1">
+            <a class="transition duration-300 hover:translate-x-2" href="chess.html">
+              Tus favoritos
+            </a>
+            <a class="transition duration-300 hover:translate-x-2" href="chess.html">
+              Valora nuestra tienda
+            </a>
+            <a class="transition duration-300 hover:translate-x-2" href="chess.html">
+              Contáctenos
+            </a>
+          </div>
+        </div>
+        <!--LINKS LIST-->
+        <div class="flex flex-col gap-1">
+          <a class="transition duration-300 hover:translate-x-2" href="chess.html">Jugar Ahora</a>
+          <a class="transition duration-300 hover:translate-x-2" href="chess.html">Tienda y productos</a>
+          <a class="transition duration-300 hover:translate-x-2" href="chess.html">Últimas noticias</a>
+          <a class="transition duration-300 hover:translate-x-2" href="chess.html">Nosotros</a>
+          <a class="transition duration-300 hover:translate-x-2" href="chess.html">
+            Terminos y Condiciones
+          </a>
+        </div>
+        <!--LINKS LIST-->
+        <div class="flex flex-col gap-1">
+          <h2>Redes sociales</h2>
+          <div class="flex">
+            <button class="px-3 py-1 text-white transition duration-300 hover:bg-white hover:text-black rounded-full"
+              type="button">
+              <i class="ri-facebook-box-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="px-5 py-3 flex justify-center text-xs md:text-sm">
+    <div class="w-full max-w-[1260px] flex justify-between">
+      <div class="flex gap-5">
+        <p>&copy; 2022 ChessPlay,</p>
+        <p>Todos los derechos reservados</p>
+      </div>
+      <div class="flex gap-5">
+        <p><a href="pages/TyC.html" class="hover:underline hover:font-semibold" href="#">Términos de privacidad</a>
+          (Actualizada 10/2022)
+        </p>
+        <p><a class="hover:underline hover:font-semibold" href="#">Mapa de sitio</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="script.js"></script>
+<script src="data.js"></script>
+<script src="cart.js"></script>
+
+</html>
